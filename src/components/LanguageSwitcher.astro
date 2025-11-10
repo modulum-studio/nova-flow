@@ -2,16 +2,16 @@
 import { type Language } from '../utils/i18n';
 
 const currentLang = (Astro.currentLocale as Language) || 'en';
-const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL || '/';
 
-// Generate URLs for language switching
+// Generate URLs for language switching with proper base path handling
 const getLanguageUrl = (lang: Language) => {
   if (lang === 'en') {
-    // For English, remove /es prefix if present
-    return currentPath.startsWith('/es') ? currentPath.replace('/es', '') || '/' : currentPath;
+    // For English, return base path (root)
+    return base === '/' ? '/' : base;
   } else {
-    // For Spanish, add /es prefix if not present
-    return currentPath.startsWith('/es') ? currentPath : `/es${currentPath}`;
+    // For Spanish, add /es to base path
+    return base === '/' ? '/es/' : `${base}es/`;
   }
 };
 ---
