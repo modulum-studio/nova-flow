@@ -23,19 +23,19 @@ const t = createTranslator(currentLang);
             <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
-            <span class="text-gray-700 dark:text-gray-300 text-lg" data-i18n="contact.benefit1">{currentLang === 'es' ? 'Configuración en menos de 5 minutos' : 'Set up in under 5 minutes'}</span>
+            <span class="text-gray-700 dark:text-gray-300 text-lg" data-i18n="contact.benefit1">{t('contact.benefit1')}</span>
           </div>
           <div class="flex items-center space-x-3">
             <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
-            <span class="text-gray-700 dark:text-gray-300 text-lg" data-i18n="contact.benefit2">{currentLang === 'es' ? 'No se requiere tarjeta de crédito para la prueba' : 'No credit card required for trial'}</span>
+            <span class="text-gray-700 dark:text-gray-300 text-lg" data-i18n="contact.benefit2">{t('contact.benefit2')}</span>
           </div>
           <div class="flex items-center space-x-3">
             <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
             </svg>
-            <span class="text-gray-700 dark:text-gray-300 text-lg" data-i18n="contact.benefit3">{currentLang === 'es' ? 'Cancela en cualquier momento, sin preguntas' : 'Cancel anytime, no questions asked'}</span>
+            <span class="text-gray-700 dark:text-gray-300 text-lg" data-i18n="contact.benefit3">{t('contact.benefit3')}</span>
           </div>
         </div>
 
@@ -45,7 +45,7 @@ const t = createTranslator(currentLang);
             href="#" 
             class="inline-flex items-center justify-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
-            <span data-i18n="contact.startTrial">{currentLang === 'es' ? 'Iniciar Prueba Gratuita' : 'Start Free Trial'}</span>
+            <span data-i18n="contact.startTrial">{t('contact.startTrial')}</span>
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
@@ -55,7 +55,7 @@ const t = createTranslator(currentLang);
             href="#" 
             class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:border-primary-500 dark:hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
           >
-            <span data-i18n="contact.scheduleDemo">{currentLang === 'es' ? 'Programar Demo' : 'Schedule Demo'}</span>
+            <span data-i18n="contact.scheduleDemo">{t('contact.scheduleDemo')}</span>
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
             </svg>
@@ -65,63 +65,63 @@ const t = createTranslator(currentLang);
 
       <!-- Right Column - Contact Form -->
       <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
-        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="contact.formTitle">{currentLang === 'es' ? 'Ponte en Contacto' : 'Get in Touch'}</h3>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="contact.formTitle">{t('contact.formTitle')}</h3>
         <p class="text-gray-600 dark:text-gray-300 mb-6" data-i18n="contact.formDesc">
-          {currentLang === 'es' ? '¿Tienes preguntas? Nos encantaría saber de ti. Envíanos un mensaje y responderemos lo antes posible.' : 'Have questions? We\'d love to hear from you. Send us a message and we\'ll respond as soon as possible.'}
+          {t('contact.formDesc')}
         </p>
         
         <form class="space-y-6">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.nameLabel">
-              {currentLang === 'es' ? 'Nombre Completo' : 'Full Name'}
+              {t('contact.nameLabel')}
             </label>
             <input 
               type="text" 
               id="name" 
               name="name" 
               class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800 dark:text-white transition-colors"
-              placeholder="{currentLang === 'es' ? 'Ingresa tu nombre completo' : 'Enter your full name'}" data-i18n-placeholder="contact.namePlaceholder"
+              placeholder={t('contact.namePlaceholder')} data-i18n-placeholder="contact.namePlaceholder"
               required
             />
           </div>
           
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.emailLabel">
-              {currentLang === 'es' ? 'Dirección de Correo' : 'Email Address'}
+              {t('contact.emailLabel')}
             </label>
             <input 
               type="email" 
               id="email" 
               name="email" 
               class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800 dark:text-white transition-colors"
-              placeholder="{currentLang === 'es' ? 'Ingresa tu dirección de correo' : 'Enter your email address'}" data-i18n-placeholder="contact.emailPlaceholder"
+              placeholder={t('contact.emailPlaceholder')} data-i18n-placeholder="contact.emailPlaceholder"
               required
             />
           </div>
           
           <div>
             <label for="company" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.companyLabel">
-              {currentLang === 'es' ? 'Empresa (Opcional)' : 'Company (Optional)'}
+              {t('contact.companyLabel')}
             </label>
             <input 
               type="text" 
               id="company" 
               name="company" 
               class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800 dark:text-white transition-colors"
-              placeholder="{currentLang === 'es' ? 'Ingresa el nombre de tu empresa' : 'Enter your company name'}" data-i18n-placeholder="contact.companyPlaceholder"
+              placeholder={t('contact.companyPlaceholder')} data-i18n-placeholder="contact.companyPlaceholder"
             />
           </div>
           
           <div>
             <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" data-i18n="contact.messageLabel">
-              {currentLang === 'es' ? 'Mensaje' : 'Message'}
+              {t('contact.messageLabel')}
             </label>
             <textarea 
               id="message" 
               name="message" 
               rows="4"
               class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800 dark:text-white transition-colors resize-none"
-              placeholder="{currentLang === 'es' ? 'Cuéntanos sobre tus necesidades o haz cualquier pregunta...' : 'Tell us about your needs or ask any questions...'}" data-i18n-placeholder="contact.messagePlaceholder"
+              placeholder={t('contact.messagePlaceholder')} data-i18n-placeholder="contact.messagePlaceholder"
               required
             ></textarea>
           </div>
@@ -130,7 +130,7 @@ const t = createTranslator(currentLang);
             type="submit" 
             class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
           >
-            <span data-i18n="contact.sendMessage">{currentLang === 'es' ? 'Enviar Mensaje' : 'Send Message'}</span>
+            <span data-i18n="contact.sendMessage">{t('contact.sendMessage')}</span>
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
             </svg>
@@ -150,7 +150,7 @@ const t = createTranslator(currentLang);
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
-              <span data-i18n="contact.support247">{currentLang === 'es' ? 'Soporte 24/7' : '24/7 Support'}</span>
+              <span data-i18n="contact.support247">{t('contact.support247')}</span>
             </div>
           </div>
         </div>
