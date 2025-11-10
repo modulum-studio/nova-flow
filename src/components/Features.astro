@@ -1,0 +1,315 @@
+---
+import { getCurrentLanguage, createTranslator, type Language } from '../utils/i18n';
+
+const currentLang = (Astro.currentLocale as Language) || 'en';
+const t = createTranslator(currentLang);
+---
+
+<section id="features" class="py-20 bg-white dark:bg-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+        data-i18n="features.title"
+      >
+        {t("features.title")}
+      </h2>
+      <p
+        class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+        data-i18n="features.subtitle"
+      >
+        {t("features.subtitle")}
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Feature 1: AI Task Suggestions -->
+      <div
+        class="group p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      >
+        <div
+          class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
+          data-i18n="features.aiInsights"
+        >
+          {t("features.aiInsights")}
+        </h3>
+        <p
+          class="text-gray-600 dark:text-gray-300"
+          data-i18n="features.aiInsightsDesc"
+        >
+          {t("features.aiInsightsDesc")}
+        </p>
+      </div>
+
+      <!-- Feature 2: Smart Automation -->
+      <div
+        class="group p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      >
+        <div
+          class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
+          data-i18n="features.smartAutomation"
+        >
+          {t("features.smartAutomation")}
+        </h3>
+        <p
+          class="text-gray-600 dark:text-gray-300"
+          data-i18n="features.smartAutomationDesc"
+        >
+          {t("features.smartAutomationDesc")}
+        </p>
+      </div>
+
+      <!-- Feature 3: Real-time Collaboration -->
+      <div
+        class="group p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      >
+        <div
+          class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
+          data-i18n="features.teamCollaboration"
+        >
+          {t("features.teamCollaboration")}
+        </h3>
+        <p
+          class="text-gray-600 dark:text-gray-300"
+          data-i18n="features.teamCollaborationDesc"
+        >
+          {t("features.teamCollaborationDesc")}
+        </p>
+      </div>
+
+      <!-- Feature 4: Advanced Analytics -->
+      <div
+        class="group p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+      >
+        <div
+          class="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+            ></path>
+          </svg>
+        </div>
+        <h3
+          class="text-xl font-semibold text-gray-900 dark:text-white mb-3"
+          data-i18n="features.advancedAnalytics"
+        >
+          {t("features.advancedAnalytics")}
+        </h3>
+        <p
+          class="text-gray-600 dark:text-gray-300"
+          data-i18n="features.advancedAnalyticsDesc"
+        >
+          {t("features.advancedAnalyticsDesc")}
+        </p>
+      </div>
+    </div>
+
+    <!-- Additional Features List -->
+    <div
+      class="mt-16 bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-3xl p-8"
+    >
+      <div class="text-center mb-8">
+        <h3
+          class="text-2xl font-bold text-gray-900 dark:text-white mb-2"
+          data-i18n="features.everythingYouNeed"
+        >
+          {t("features.everythingYouNeed")}
+        </h3>
+        <p
+          class="text-gray-600 dark:text-gray-300"
+          data-i18n="features.everythingYouNeedDesc"
+        >
+          {t("features.everythingYouNeedDesc")}
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="flex items-center space-x-3">
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            class="text-gray-700 dark:text-gray-300"
+            data-i18n="features.unlimitedProjects"
+            >{
+              currentLang === "es"
+                ? "Proyectos Ilimitados"
+                : "Unlimited Projects"
+            }</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            class="text-gray-700 dark:text-gray-300"
+            data-i18n="features.customWorkflows"
+            >{
+              currentLang === "es"
+                ? "Flujos de Trabajo Personalizados"
+                : "Custom Workflows"
+            }</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            class="text-gray-700 dark:text-gray-300"
+            data-i18n="features.mobileApps"
+            >{
+              currentLang === "es" ? "Aplicaciones Móviles" : "Mobile Apps"
+            }</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            class="text-gray-700 dark:text-gray-300"
+            data-i18n="features.apiIntegration"
+            >{
+              currentLang === "es" ? "Integración API" : "API Integration"
+            }</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            class="text-gray-700 dark:text-gray-300"
+            data-i18n="features.support24"
+            >{currentLang === "es" ? "Soporte 24/7" : "24/7 Support"}</span
+          >
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span
+            class="text-gray-700 dark:text-gray-300"
+            data-i18n="features.enterpriseSecurity"
+            >{
+              currentLang === "es"
+                ? "Seguridad Empresarial"
+                : "Enterprise Security"
+            }</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

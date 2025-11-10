@@ -1,0 +1,353 @@
+---
+import { getCurrentLanguage, getTranslation, type Language } from '../utils/i18n';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+// Get current language from URL or default to 'en'
+const currentLang = (Astro.currentLocale as Language) || 'en';
+
+// Use translations or fallback to props
+const { 
+  title = getTranslation(currentLang, 'meta.title'), 
+  description = getTranslation(currentLang, 'meta.description') 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={currentLang} class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content="NovaFlow" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- Hreflang attributes for SEO -->
+    <link rel="alternate" hreflang="en" href={`${Astro.site}${currentLang === 'es' ? Astro.url.pathname.replace('/es', '') || '/' : Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="es" href={`${Astro.site}${currentLang === 'es' ? Astro.url.pathname : `/es${Astro.url.pathname}`}`} />
+    <link rel="alternate" hreflang="x-default" href={`${Astro.site}${currentLang === 'es' ? Astro.url.pathname.replace('/es', '') || '/' : Astro.url.pathname}`} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Dark mode script -->
+    <script is:inline>
+      // Check for saved theme preference or default to 'light' mode
+      const theme = localStorage.getItem('theme') || 'light';
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+      
+      // Check for saved language preference and set document lang
+      const language = localStorage.getItem('language') || 'en';
+      document.documentElement.lang = language;
+    </script>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <slot />
+    
+    <!-- Dark mode toggle script -->
+    <script>
+      function toggleTheme() {
+        const html = document.documentElement;
+        const isDark = html.classList.contains('dark');
+        
+        if (isDark) {
+          html.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+      
+      // Make toggleTheme available globally
+      window.toggleTheme = toggleTheme;
+    </script>
+    
+    <!-- I18n client script -->
+    <script>
+      // Embed translations for client-side access
+      window.__TRANSLATIONS__ = {
+        en: {
+          meta: {
+            title: "NovaFlow - AI-Powered Task Management",
+            description: "NovaFlow helps teams organize their tasks with artificial intelligence in a simple and fast way."
+          },
+          nav: {
+            features: "Features",
+            pricing: "Pricing", 
+            testimonials: "Testimonials",
+            contact: "Contact",
+            signIn: "Sign In",
+            startFree: "Start Free"
+          },
+          hero: {
+            title: "Organize your tasks with artificial intelligence",
+            subtitle: "NovaFlow helps teams manage their projects efficiently with AI-powered insights and automation.",
+            cta: "Start Free Trial",
+            watchDemo: "Watch Demo",
+            task1: "Design new landing page",
+            task2: "Review team feedback", 
+            task3: "Update documentation",
+            aiSuggested: "AI Suggested",
+            completed: "Completed",
+            inProgress: "In Progress",
+            aiPowered: "AI Powered ✨"
+          },
+          features: {
+            title: "Powerful Features",
+            subtitle: "Everything you need to manage your tasks efficiently",
+            aiInsights: "AI Insights",
+            aiInsightsDesc: "Get intelligent recommendations and insights to optimize your workflow",
+            smartAutomation: "Smart Automation",
+            smartAutomationDesc: "Automate repetitive tasks and focus on what matters most",
+            teamCollaboration: "Team Collaboration",
+            teamCollaborationDesc: "Work together seamlessly with real-time updates and notifications",
+            unlimitedProjects: "Unlimited Projects",
+            customWorkflows: "Custom Workflows",
+            mobileApps: "Mobile Apps",
+            apiIntegration: "API Integration",
+            support24: "24/7 Support",
+            enterpriseSecurity: "Enterprise Security"
+          },
+          pricing: {
+            title: "Simple Pricing",
+            subtitle: "Choose the plan that works best for you",
+            free: "Free",
+            pro: "Pro",
+            enterprise: "Enterprise",
+            getStarted: "Get Started",
+            contactSales: "Contact Sales",
+            freeDesc: "Perfect for individuals getting started",
+            perMonth: "/month",
+            perMonthPerUser: "/month per user",
+            mostPopular: "Most Popular",
+            proDesc: "Best for growing teams and businesses",
+            startProTrial: "Start Pro Trial",
+            enterpriseDesc: "For large organizations with custom needs",
+            custom: "Custom",
+            freeFeature1: "Up to 3 projects",
+            freeFeature2: "Basic AI suggestions",
+            freeFeature3: "Mobile app access",
+            freeFeature4: "Community support",
+            proFeature1: "Unlimited projects",
+            proFeature2: "Advanced AI automation",
+            proFeature3: "Team collaboration tools",
+            proFeature4: "Priority support",
+            proFeature5: "Advanced analytics",
+            proFeature6: "API access",
+            enterpriseFeature1: "Everything in Pro",
+            enterpriseFeature2: "Custom integrations",
+            enterpriseFeature3: "Dedicated support",
+            enterpriseFeature4: "Advanced security",
+            enterpriseFeature5: "SLA guarantee",
+            enterpriseFeature6: "On-premise deployment",
+            questionsText: "Have questions about our pricing?",
+            contactUs: "Contact us",
+            freeTrial: "14-day free trial",
+            noSetupFees: "No setup fees",
+            cancelAnytime: "Cancel anytime"
+          },
+          testimonials: {
+            title: "What our customers say",
+            subtitle: "Trusted by teams worldwide",
+            quote1: "NovaFlow's AI suggestions have completely transformed how our team prioritizes tasks. We're 40% more productive and never miss important deadlines anymore.",
+            name1: "Sarah Mitchell",
+            title1: "Product Manager, TechCorp",
+            quote2: "The automation features are incredible. NovaFlow handles all the repetitive stuff so we can focus on what really matters. Game changer for our startup!",
+            name2: "Marcus Rodriguez",
+            title2: "CTO, InnovateLab",
+            quote3: "Finally, a task management tool that actually understands our workflow. The analytics help us make better decisions and the team loves the interface.",
+            name3: "Emily Chen",
+            title3: "Operations Director, FlowTech",
+            stat1: "Happy Users",
+            stat2: "Companies",
+            stat3: "Uptime",
+            stat4: "User Rating"
+          },
+          contact: {
+            title: "Get in Touch",
+            subtitle: "Ready to transform your workflow? Contact us today.",
+            name: "Name",
+            email: "Email",
+            message: "Message",
+            send: "Send Message",
+            benefit1: "Set up in under 5 minutes",
+            benefit2: "No credit card required for trial",
+            benefit3: "Cancel anytime, no questions asked",
+            startTrial: "Start Free Trial",
+            scheduleDemo: "Schedule Demo",
+            formTitle: "Get in Touch",
+            formDesc: "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+            nameLabel: "Full Name",
+            namePlaceholder: "Enter your full name",
+            emailLabel: "Email Address",
+            emailPlaceholder: "Enter your email address",
+            companyLabel: "Company (Optional)",
+            companyPlaceholder: "Enter your company name",
+            messageLabel: "Message",
+            messagePlaceholder: "Tell us about your needs or ask any questions...",
+            sendMessage: "Send Message",
+            support247: "24/7 Support"
+          },
+          footer: {
+            description: "Streamline your workflow with intelligent task management powered by AI.",
+            product: "Product",
+            company: "Company",
+            support: "Support",
+            legal: "Legal",
+            allRightsReserved: "All rights reserved."
+          }
+        },
+        es: {
+          meta: {
+            title: "NovaFlow - Gestión de Tareas con IA",
+            description: "NovaFlow ayuda a los equipos a organizar sus tareas con inteligencia artificial de manera simple y rápida."
+          },
+          nav: {
+            features: "Características",
+            pricing: "Precios",
+            testimonials: "Testimonios", 
+            contact: "Contacto",
+            signIn: "Iniciar Sesión",
+            startFree: "Comenzar Gratis"
+          },
+          hero: {
+            title: "Organiza tus tareas con inteligencia artificial",
+            subtitle: "NovaFlow ayuda a los equipos a gestionar sus proyectos de manera eficiente con insights y automatización impulsados por IA.",
+            cta: "Comenzar Prueba Gratuita",
+            watchDemo: "Ver Demo",
+            task1: "Diseñar nueva página de inicio",
+            task2: "Revisar comentarios del equipo",
+            task3: "Actualizar documentación",
+            aiSuggested: "Sugerido por IA",
+            completed: "Completado",
+            inProgress: "En Progreso",
+            aiPowered: "Impulsado por IA ✨"
+          },
+          features: {
+            title: "Características Poderosas",
+            subtitle: "Todo lo que necesitas para gestionar tus tareas de manera eficiente",
+            aiInsights: "Insights de IA",
+            aiInsightsDesc: "Obtén recomendaciones inteligentes e insights para optimizar tu flujo de trabajo",
+            smartAutomation: "Automatización Inteligente",
+            smartAutomationDesc: "Automatiza tareas repetitivas y enfócate en lo que más importa",
+            teamCollaboration: "Colaboración en Equipo",
+            teamCollaborationDesc: "Trabaja en conjunto sin problemas con actualizaciones y notificaciones en tiempo real",
+            unlimitedProjects: "Proyectos Ilimitados",
+            customWorkflows: "Flujos de Trabajo Personalizados",
+            mobileApps: "Aplicaciones Móviles",
+            apiIntegration: "Integración API",
+            support24: "Soporte 24/7",
+            enterpriseSecurity: "Seguridad Empresarial"
+          },
+          pricing: {
+            title: "Precios Simples",
+            subtitle: "Elige el plan que mejor funcione para ti",
+            free: "Gratis",
+            pro: "Pro",
+            enterprise: "Empresarial",
+            getStarted: "Comenzar",
+            contactSales: "Contactar Ventas",
+            freeDesc: "Perfecto para individuos que están empezando",
+            perMonth: "/mes",
+            perMonthPerUser: "/mes por usuario",
+            mostPopular: "Más Popular",
+            proDesc: "Ideal para equipos en crecimiento y empresas",
+            startProTrial: "Iniciar Prueba Pro",
+            enterpriseDesc: "Para grandes organizaciones con necesidades personalizadas",
+            custom: "Personalizado",
+            freeFeature1: "Hasta 3 proyectos",
+            freeFeature2: "Sugerencias básicas de IA",
+            freeFeature3: "Acceso a aplicación móvil",
+            freeFeature4: "Soporte comunitario",
+            proFeature1: "Proyectos ilimitados",
+            proFeature2: "Automatización avanzada de IA",
+            proFeature3: "Herramientas de colaboración en equipo",
+            proFeature4: "Soporte prioritario",
+            proFeature5: "Análisis avanzados",
+            proFeature6: "Acceso API",
+            enterpriseFeature1: "Todo lo de Pro",
+            enterpriseFeature2: "Integraciones personalizadas",
+            enterpriseFeature3: "Soporte dedicado",
+            enterpriseFeature4: "Seguridad avanzada",
+            enterpriseFeature5: "Garantía SLA",
+            enterpriseFeature6: "Implementación local",
+            questionsText: "¿Tienes preguntas sobre nuestros precios?",
+            contactUs: "Contáctanos",
+            freeTrial: "Prueba gratuita de 14 días",
+            noSetupFees: "Sin tarifas de configuración",
+            cancelAnytime: "Cancela en cualquier momento"
+          },
+          testimonials: {
+            title: "Lo que dicen nuestros clientes",
+            subtitle: "Confiado por equipos en todo el mundo",
+            quote1: "Las sugerencias de IA de NovaFlow han transformado completamente cómo nuestro equipo prioriza las tareas. Somos 40% más productivos y nunca perdemos fechas límite importantes.",
+            name1: "Sarah Mitchell",
+            title1: "Gerente de Producto, TechCorp",
+            quote2: "Las funciones de automatización son increíbles. NovaFlow maneja todas las tareas repetitivas para que podamos enfocarnos en lo que realmente importa. ¡Un cambio radical para nuestra startup!",
+            name2: "Marcus Rodriguez",
+            title2: "CTO, InnovateLab",
+            quote3: "Finalmente, una herramienta de gestión de tareas que realmente entiende nuestro flujo de trabajo. Los análisis nos ayudan a tomar mejores decisiones y al equipo le encanta la interfaz.",
+            name3: "Emily Chen",
+            title3: "Directora de Operaciones, FlowTech",
+            stat1: "Usuarios Felices",
+            stat2: "Empresas",
+            stat3: "Tiempo Activo",
+            stat4: "Calificación de Usuario"
+          },
+          contact: {
+            title: "Ponte en Contacto",
+            subtitle: "¿Listo para transformar tu flujo de trabajo? Contáctanos hoy.",
+            name: "Nombre",
+            email: "Correo Electrónico",
+            message: "Mensaje",
+            send: "Enviar Mensaje",
+            benefit1: "Configuración en menos de 5 minutos",
+            benefit2: "No se requiere tarjeta de crédito para la prueba",
+            benefit3: "Cancela en cualquier momento, sin preguntas",
+            startTrial: "Iniciar Prueba Gratuita",
+            scheduleDemo: "Programar Demo",
+            formTitle: "Ponte en Contacto",
+            formDesc: "¿Tienes preguntas? Nos encantaría saber de ti. Envíanos un mensaje y responderemos lo antes posible.",
+            nameLabel: "Nombre Completo",
+            namePlaceholder: "Ingresa tu nombre completo",
+            emailLabel: "Dirección de Correo",
+            emailPlaceholder: "Ingresa tu dirección de correo",
+            companyLabel: "Empresa (Opcional)",
+            companyPlaceholder: "Ingresa el nombre de tu empresa",
+            messageLabel: "Mensaje",
+            messagePlaceholder: "Cuéntanos sobre tus necesidades o haz cualquier pregunta...",
+            sendMessage: "Enviar Mensaje",
+            support247: "Soporte 24/7"
+          },
+          footer: {
+            description: "NovaFlow ayuda a los equipos a organizar sus tareas con inteligencia artificial de manera simple y rápida.",
+            product: "Producto",
+            company: "Empresa",
+            support: "Soporte",
+            legal: "Legal",
+            allRightsReserved: "Todos los derechos reservados."
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

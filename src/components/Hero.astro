@@ -1,0 +1,122 @@
+---
+import { getCurrentLanguage, createTranslator, type Language } from '../utils/i18n';
+
+const currentLang = (Astro.currentLocale as Language) || 'en';
+const t = createTranslator(currentLang);
+---
+
+<section class="pt-24 pb-16 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left Column - Content -->
+      <div class="animate-fade-in">
+        <div class="mb-6">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+            🚀 AI-Powered Task Management
+          </span>
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6" data-i18n="hero.title">
+          {t('hero.title')}
+        </h1>
+        
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed" data-i18n="hero.subtitle">
+          {t('hero.subtitle')}
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a 
+            href="#" 
+            class="inline-flex items-center justify-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+<span data-i18n="hero.cta">{t('hero.cta')}</span>
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          
+          <a 
+            href="#" 
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold rounded-lg hover:border-primary-500 dark:hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
+          >
+<span data-i18n="hero.watchDemo">{t('hero.watchDemo')}</span>
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9-4V8a3 3 0 013-3h4a3 3 0 013 3v2M7 21h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Trust indicators -->
+        <div class="flex items-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Free 14-day trial
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            No credit card required
+          </div>
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            Cancel anytime
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column - Illustration -->
+      <div class="animate-slide-up">
+        <div class="relative">
+          <!-- Main dashboard mockup -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div class="text-xs text-gray-500 dark:text-gray-400">NovaFlow Dashboard</div>
+            </div>
+            
+            <!-- Dashboard content -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-primary-500 rounded-full"></div>
+                  <span class="text-sm font-medium" data-i18n="hero.task1">{currentLang === 'es' ? 'Diseñar nueva página de inicio' : 'Design new landing page'}</span>
+                </div>
+                <span class="text-xs text-primary-600 dark:text-primary-400 font-medium" data-i18n="hero.aiSuggested">{currentLang === 'es' ? 'Sugerido por IA' : 'AI Suggested'}</span>
+              </div>
+              
+              <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span class="text-sm" data-i18n="hero.task2">{currentLang === 'es' ? 'Revisar comentarios del equipo' : 'Review team feedback'}</span>
+                </div>
+                <span class="text-xs text-gray-500" data-i18n="hero.completed">{currentLang === 'es' ? 'Completado' : 'Completed'}</span>
+              </div>
+              
+              <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <span class="text-sm" data-i18n="hero.task3">{currentLang === 'es' ? 'Actualizar documentación' : 'Update documentation'}</span>
+                </div>
+                <span class="text-xs text-gray-500" data-i18n="hero.inProgress">{currentLang === 'es' ? 'En Progreso' : 'In Progress'}</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Floating AI badge -->
+          <div class="absolute -top-4 -right-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-bounce-slow" data-i18n="hero.aiPowered">
+            {currentLang === 'es' ? 'Impulsado por IA ✨' : 'AI Powered ✨'}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

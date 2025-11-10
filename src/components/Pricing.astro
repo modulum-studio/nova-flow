@@ -1,0 +1,197 @@
+---
+import { getCurrentLanguage, createTranslator, type Language } from '../utils/i18n';
+
+const currentLang = (Astro.currentLocale as Language) || 'en';
+const t = createTranslator(currentLang);
+---
+
+<section id="pricing" class="py-20 bg-gray-50 dark:bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="pricing.title">
+        {t('pricing.title')}
+      </h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-i18n="pricing.subtitle">
+        {t('pricing.subtitle')}
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Free Plan -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 relative hover:shadow-xl transition-shadow duration-300">
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="pricing.free">{t('pricing.free')}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6" data-i18n="pricing.freeDesc">{currentLang === 'es' ? 'Perfecto para individuos que están empezando' : 'Perfect for individuals getting started'}</p>
+          
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-gray-900 dark:text-white">$0</span>
+            <span class="text-gray-600 dark:text-gray-300" data-i18n="pricing.perMonth">{currentLang === 'es' ? '/mes' : '/month'}</span>
+          </div>
+          
+          <a href="#" class="w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-block mb-8" data-i18n="pricing.getStarted">
+            {t('pricing.getStarted')}
+          </a>
+        </div>
+        
+        <ul class="space-y-4">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.freeFeature1">{currentLang === 'es' ? 'Hasta 3 proyectos' : 'Up to 3 projects'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.freeFeature2">{currentLang === 'es' ? 'Sugerencias básicas de IA' : 'Basic AI suggestions'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.freeFeature3">{currentLang === 'es' ? 'Acceso a aplicación móvil' : 'Mobile app access'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.freeFeature4">{currentLang === 'es' ? 'Soporte comunitario' : 'Community support'}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 relative hover:shadow-xl transition-shadow duration-300 border-2 border-primary-500">
+        <!-- Popular badge -->
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="bg-primary-500 text-white px-4 py-1 rounded-full text-sm font-semibold" data-i18n="pricing.mostPopular">{currentLang === 'es' ? 'Más Popular' : 'Most Popular'}</span>
+        </div>
+        
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="pricing.pro">{currentLang === 'es' ? 'Pro' : 'Pro'}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6" data-i18n="pricing.proDesc">{currentLang === 'es' ? 'Ideal para equipos en crecimiento y empresas' : 'Best for growing teams and businesses'}</p>
+          
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-gray-900 dark:text-white">$19</span>
+            <span class="text-gray-600 dark:text-gray-300" data-i18n="pricing.perMonthPerUser">{currentLang === 'es' ? '/mes por usuario' : '/month per user'}</span>
+          </div>
+          
+          <a href="#" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-block mb-8" data-i18n="pricing.startProTrial">
+            {currentLang === 'es' ? 'Iniciar Prueba Pro' : 'Start Pro Trial'}
+          </a>
+        </div>
+        
+        <ul class="space-y-4">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.proFeature1">{currentLang === 'es' ? 'Proyectos ilimitados' : 'Unlimited projects'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.proFeature2">{currentLang === 'es' ? 'Automatización avanzada de IA' : 'Advanced AI automation'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.proFeature3">{currentLang === 'es' ? 'Herramientas de colaboración en equipo' : 'Team collaboration tools'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.proFeature4">{currentLang === 'es' ? 'Soporte prioritario' : 'Priority support'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.proFeature5">{currentLang === 'es' ? 'Análisis avanzados' : 'Advanced analytics'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.proFeature6">{currentLang === 'es' ? 'Acceso API' : 'API access'}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8 relative hover:shadow-xl transition-shadow duration-300">
+        <div class="text-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="pricing.enterprise">{currentLang === 'es' ? 'Empresarial' : 'Enterprise'}</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6" data-i18n="pricing.enterpriseDesc">{currentLang === 'es' ? 'Para grandes organizaciones con necesidades personalizadas' : 'For large organizations with custom needs'}</p>
+          
+          <div class="mb-6">
+            <span class="text-4xl font-bold text-gray-900 dark:text-white" data-i18n="pricing.custom">{currentLang === 'es' ? 'Personalizado' : 'Custom'}</span>
+          </div>
+          
+          <a href="#" class="w-full bg-gray-900 dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-100 text-white dark:text-gray-900 font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-block mb-8" data-i18n="pricing.contactSales">
+            {currentLang === 'es' ? 'Contactar Ventas' : 'Contact Sales'}
+          </a>
+        </div>
+        
+        <ul class="space-y-4">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.enterpriseFeature1">{currentLang === 'es' ? 'Todo lo de Pro' : 'Everything in Pro'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.enterpriseFeature2">{currentLang === 'es' ? 'Integraciones personalizadas' : 'Custom integrations'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.enterpriseFeature3">{currentLang === 'es' ? 'Soporte dedicado' : 'Dedicated support'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.enterpriseFeature4">{currentLang === 'es' ? 'Seguridad avanzada' : 'Advanced security'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.enterpriseFeature5">{currentLang === 'es' ? 'Garantía SLA' : 'SLA guarantee'}</span>
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-gray-700 dark:text-gray-300" data-i18n="pricing.enterpriseFeature6">{currentLang === 'es' ? 'Implementación local' : 'On-premise deployment'}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="pricing.questionsText">
+        {currentLang === 'es' ? '¿Tienes preguntas sobre nuestros precios?' : 'Have questions about our pricing?'} 
+        <a href="#contact" class="text-primary-600 dark:text-primary-400 hover:underline font-semibold" data-i18n="pricing.contactUs">{currentLang === 'es' ? 'Contáctanos' : 'Contact us'}</a> 
+        {currentLang === 'es' ? 'para una cotización personalizada.' : 'for a personalized quote.'}
+      </p>
+      <div class="flex justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
+        <span data-i18n="pricing.freeTrial">✓ {currentLang === 'es' ? 'Prueba gratuita de 14 días' : '14-day free trial'}</span>
+        <span data-i18n="pricing.noSetupFees">✓ {currentLang === 'es' ? 'Sin tarifas de configuración' : 'No setup fees'}</span>
+        <span data-i18n="pricing.cancelAnytime">✓ {currentLang === 'es' ? 'Cancela en cualquier momento' : 'Cancel anytime'}</span>
+      </div>
+    </div>
+  </div>
+</section>
