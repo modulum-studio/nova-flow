@@ -5,7 +5,8 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
-  site: 'https://novaflow.com',
+  site: 'https://modulum-studio.github.io',
+  base: '/nova-flow',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
