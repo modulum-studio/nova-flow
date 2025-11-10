@@ -131,9 +131,20 @@
     "description": "Streamline your workflow with intelligent task management powered by AI.",
     "product": "Product",
     "company": "Company",
-    "support": "Support",
-    "legal": "Legal",
-    "allRightsReserved": "All rights reserved."
+    "features": "Features",
+    "pricing": "Pricing",
+    "integrations": "Integrations",
+    "api": "API",
+    "mobileApps": "Mobile Apps",
+    "about": "About",
+    "blog": "Blog",
+    "careers": "Careers",
+    "contact": "Contact",
+    "press": "Press",
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy"
   },
   "common": {
     "loading": "Loading...",

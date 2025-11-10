@@ -131,9 +131,20 @@
     "description": "NovaFlow ayuda a los equipos a organizar sus tareas con inteligencia artificial de manera simple y rápida.",
     "product": "Producto",
     "company": "Empresa",
-    "support": "Soporte",
-    "legal": "Legal",
-    "allRightsReserved": "Todos los derechos reservados."
+    "features": "Características",
+    "pricing": "Precios",
+    "integrations": "Integraciones",
+    "api": "API",
+    "mobileApps": "Apps Móviles",
+    "about": "Acerca de",
+    "blog": "Blog",
+    "careers": "Carreras",
+    "contact": "Contacto",
+    "press": "Prensa",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "cookiePolicy": "Política de Cookies"
   },
   "common": {
     "loading": "Cargando...",

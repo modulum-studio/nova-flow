@@ -47,25 +47,25 @@ const t = createTranslator(currentLang);
 
       <!-- Product Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Product</h3>
+        <h3 class="text-lg font-semibold mb-4" data-i18n="footer.product">{t('footer.product')}</h3>
         <ul class="space-y-2">
-          <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
-          <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Integrations</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">API</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mobile Apps</a></li>
+          <li><a href="#features" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.features">{t('footer.features')}</a></li>
+          <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.pricing">{t('footer.pricing')}</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.integrations">{t('footer.integrations')}</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.api">{t('footer.api')}</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.mobileApps">{t('footer.mobileApps')}</a></li>
         </ul>
       </div>
 
       <!-- Company Links -->
       <div>
-        <h3 class="text-lg font-semibold mb-4">Company</h3>
+        <h3 class="text-lg font-semibold mb-4" data-i18n="footer.company">{t('footer.company')}</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
-          <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-          <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.about">{t('footer.about')}</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.blog">{t('footer.blog')}</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.careers">{t('footer.careers')}</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.contact">{t('footer.contact')}</a></li>
+          <li><a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.press">{t('footer.press')}</a></li>
         </ul>
       </div>
     </div>
@@ -74,12 +74,12 @@ const t = createTranslator(currentLang);
     <div class="border-t border-gray-800 mt-12 pt-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="text-gray-400 text-sm mb-4 md:mb-0">
-          © 2024 NovaFlow. All rights reserved.
+          © 2024 NovaFlow. <span data-i18n="footer.allRightsReserved">{t('footer.allRightsReserved')}</span>
         </div>
         <div class="flex space-x-6 text-sm">
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
-          <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.privacyPolicy">{t('footer.privacyPolicy')}</a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.termsOfService">{t('footer.termsOfService')}</a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.cookiePolicy">{t('footer.cookiePolicy')}</a>
         </div>
       </div>
     </div>
